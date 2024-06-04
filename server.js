@@ -44,3 +44,6 @@ app.post('/insertdata', async(req,res) => {
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
+
+//vi får data i en string men på unstring det slik at vi kan manipuler det og så stringifye vi det på nytt slik at vi kan pushe den
+//

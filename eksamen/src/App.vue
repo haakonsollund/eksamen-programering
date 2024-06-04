@@ -16,6 +16,10 @@ export default {
         const submitData = () => {
           insertdata(inputData.value)
         }
+
+        onMounted(async () => {
+          storagedata.value = await getData();
+       });
         //retunerer submit og input fra template slik att vi kan bruke dem i script
         return {
             submitData,
