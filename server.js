@@ -33,8 +33,15 @@ app.post('/insertdata', async(req,res) => {
         })  
     })
 })
-
-
+//hær henter vi tilbake dataen fra storage file og sjekker karaktersette vis det er en error så kjører den err vis ikke så kjører den data
+app.get('/getdata', async (req, res) => {
+    fs.readFile(storagefile, 'utf8', function (err, data) {
+        //vis det er en error sender vi en string med success false og sender storagedata null som betty vi sender fortsatt stringen men den er tom
+        if (err) res.json({ success: false, storagedata: null });
+        //vis det ikke er noe error vil vi sende i en string success true og storagedata blir parset som betyr den sender heller som json
+        else res.json({ success: true, storagedata: JSON.parse(data).storagedata });
+    });
+});
 
 
 
